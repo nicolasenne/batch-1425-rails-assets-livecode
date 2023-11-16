@@ -1,0 +1,1 @@
+# batch-1425-rails-assets-livecode
