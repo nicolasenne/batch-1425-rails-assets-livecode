@@ -1,0 +1,1979 @@
+Started GET "/" for ::1 at 2023-08-24 12:12:58 -0300
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 2 pending migrations:
+
+20230314165946_create_gardens.rb
+20230314171213_create_plants.rb
+
+
+):
+  
+activerecord (7.0.4.3) lib/active_record/migration.rb:627:in `check_pending!'
+activerecord (7.0.4.3) lib/active_record/migration.rb:592:in `block (2 levels) in call'
+activesupport (7.0.4.3) lib/active_support/file_update_checker.rb:83:in `execute'
+activerecord (7.0.4.3) lib/active_record/migration.rb:597:in `block in call'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.6.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.6.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.6.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateGardens (20230314165946)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "gardens" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "banner_url" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230314165946"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePlants (20230314171213)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "plants" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "garden_id" integer NOT NULL, "name" varchar, "image_url" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_2c5194e718"
+FOREIGN KEY ("garden_id")
+  REFERENCES "gardens" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_plants_on_garden_id" ON "plants" ("garden_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230314171213"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-08-24 15:13:22.071833"], ["updated_at", "2023-08-24 15:13:22.071833"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2023-08-24 12:13:26 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/nicolasenne/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/nicolasenne/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.5ms | Allocations: 291)
+Completed 200 OK in 5ms (Views: 1.2ms | ActiveRecord: 0.0ms | Allocations: 2583)
+
+
+Started GET "/gardens" for ::1 at 2023-08-24 12:13:50 -0300
+Processing by GardensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens"[0m
+  ↳ app/views/gardens/index.html.erb:6
+  Rendered gardens/index.html.erb within layouts/application (Duration: 6.5ms | Allocations: 1416)
+  Rendered layout layouts/application.html.erb (Duration: 3725.7ms | Allocations: 188181)
+Completed 200 OK in 3739ms (Views: 3727.3ms | ActiveRecord: 0.2ms | Allocations: 191419)
+
+
+Started GET "/gardens/new" for ::1 at 2023-08-24 14:17:33 -0300
+Processing by GardensController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/new.html.erb within layouts/application
+  Rendered gardens/_form.html.erb (Duration: 79.1ms | Allocations: 27893)
+  Rendered gardens/new.html.erb within layouts/application (Duration: 80.1ms | Allocations: 28213)
+  Rendered layout layouts/application.html.erb (Duration: 94.7ms | Allocations: 36970)
+Completed 200 OK in 189ms (Views: 95.1ms | ActiveRecord: 7.2ms | Allocations: 43424)
+
+
+Started GET "/gardens" for ::1 at 2023-08-24 14:17:35 -0300
+Processing by GardensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.4ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens"[0m
+  ↳ app/views/gardens/index.html.erb:6
+  Rendered gardens/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 927)
+  Rendered layout layouts/application.html.erb (Duration: 15.7ms | Allocations: 9552)
+Completed 200 OK in 17ms (Views: 15.6ms | ActiveRecord: 0.4ms | Allocations: 9878)
+
+
+Started GET "/gardens" for ::1 at 2023-08-24 14:18:39 -0300
+Processing by GardensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.4ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens"[0m
+  ↳ app/views/gardens/index.html.erb:6
+  Rendered gardens/index.html.erb within layouts/application (Duration: 7.3ms | Allocations: 830)
+  Rendered layout layouts/application.html.erb (Duration: 22.8ms | Allocations: 9457)
+Completed 200 OK in 25ms (Views: 23.3ms | ActiveRecord: 0.4ms | Allocations: 9738)
+
+
+Started GET "/gardens/new" for ::1 at 2023-08-24 14:18:40 -0300
+Processing by GardensController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/new.html.erb within layouts/application
+  Rendered gardens/_form.html.erb (Duration: 18.9ms | Allocations: 14173)
+  Rendered gardens/new.html.erb within layouts/application (Duration: 19.2ms | Allocations: 14264)
+  Rendered layout layouts/application.html.erb (Duration: 35.2ms | Allocations: 22894)
+Completed 200 OK in 37ms (Views: 35.7ms | ActiveRecord: 0.0ms | Allocations: 23183)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mGarden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGarden Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "gardens" WHERE "gardens"."name" = ? LIMIT ?[0m  [["name", "My Little Garden"], ["LIMIT", 1]]
+  [1m[36mGarden Create (0.2ms)[0m  [1m[32mINSERT INTO "gardens" ("name", "banner_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "My Little Garden"], ["banner_url", "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/garden_1.jpg"], ["created_at", "2023-08-24 17:23:43.741433"], ["updated_at", "2023-08-24 17:23:43.741433"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGarden Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "gardens" WHERE "gardens"."name" = ? LIMIT ?[0m  [["name", "My Other Garden"], ["LIMIT", 1]]
+  [1m[36mGarden Create (0.1ms)[0m  [1m[32mINSERT INTO "gardens" ("name", "banner_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "My Other Garden"], ["banner_url", "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/garden_2.jpg"], ["created_at", "2023-08-24 17:23:43.743509"], ["updated_at", "2023-08-24 17:23:43.743509"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/gardens" for ::1 at 2023-08-24 14:23:47 -0300
+Processing by GardensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens"[0m
+  ↳ app/views/gardens/index.html.erb:6
+  Rendered gardens/_garden.html.erb (Duration: 0.3ms | Allocations: 215)
+  Rendered gardens/_garden.html.erb (Duration: 0.0ms | Allocations: 19)
+  Rendered gardens/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 3719)
+  Rendered layout layouts/application.html.erb (Duration: 15.4ms | Allocations: 24160)
+Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 0.4ms | Allocations: 25982)
+
+
+Started GET "/gardens/1" for ::1 at 2023-08-24 14:23:49 -0300
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.4ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:51:in `set_garden'
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mPlant Load (0.1ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ?[0m  [["garden_id", 1]]
+  ↳ app/views/gardens/show.html.erb:9
+  Rendered gardens/show.html.erb within layouts/application (Duration: 32.5ms | Allocations: 9071)
+  Rendered layout layouts/application.html.erb (Duration: 32.7ms | Allocations: 9155)
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 0.7ms | Allocations: 11911)
+
+
+  
+ActionView::Template::Error (undefined method `model_name' for nil:NilClass
+
+      convert_to_model(record_or_class).model_name
+                                       ^^^^^^^^^^^):
+    18:   <div class="row my-5 justify-content-center">
+    19:     <div class="col-4">
+    20:       <h4>Add a plant</h4>
+    21:       <%= simple_form_for [@garden, @plant] do |f| %>
+    22:         <%= f.input :name, placeholder: "Palm tree" %>
+    23:         <%= f.input :image_url, placeholder: "https://some_nice_image_found_on_google.jpg" %>
+    24:         <%= f.submit "Add", class: "btn btn-primary" %>
+  
+app/views/gardens/show.html.erb:21
+Started GET "/gardens" for ::1 at 2023-08-24 14:23:55 -0300
+Processing by GardensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.1ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens"[0m
+  ↳ app/views/gardens/index.html.erb:6
+  Rendered gardens/_garden.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered gardens/_garden.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered gardens/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1151)
+  Rendered layout layouts/application.html.erb (Duration: 17.6ms | Allocations: 9903)
+Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.1ms | Allocations: 10208)
+
+
+Started GET "/gardens" for ::1 at 2023-08-24 14:23:57 -0300
+Processing by GardensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens"[0m
+  ↳ app/views/gardens/index.html.erb:6
+  Rendered gardens/_garden.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered gardens/_garden.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered gardens/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1108)
+  Rendered layout layouts/application.html.erb (Duration: 20.9ms | Allocations: 9729)
+Completed 200 OK in 22ms (Views: 21.3ms | ActiveRecord: 0.2ms | Allocations: 10000)
+
+
+Started GET "/gardens/2" for ::1 at 2023-08-24 14:23:59 -0300
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:51:in `set_garden'
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mPlant Load (0.1ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ?[0m  [["garden_id", 2]]
+  ↳ app/views/gardens/show.html.erb:9
+  Rendered gardens/show.html.erb within layouts/application (Duration: 5.2ms | Allocations: 2343)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 2422)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.3ms | Allocations: 3138)
+
+
+  
+ActionView::Template::Error (undefined method `model_name' for nil:NilClass
+
+      convert_to_model(record_or_class).model_name
+                                       ^^^^^^^^^^^):
+    18:   <div class="row my-5 justify-content-center">
+    19:     <div class="col-4">
+    20:       <h4>Add a plant</h4>
+    21:       <%= simple_form_for [@garden, @plant] do |f| %>
+    22:         <%= f.input :name, placeholder: "Palm tree" %>
+    23:         <%= f.input :image_url, placeholder: "https://some_nice_image_found_on_google.jpg" %>
+    24:         <%= f.submit "Add", class: "btn btn-primary" %>
+  
+app/views/gardens/show.html.erb:21
+Started GET "/gardens" for ::1 at 2023-08-24 14:24:00 -0300
+Processing by GardensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.1ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens"[0m
+  ↳ app/views/gardens/index.html.erb:6
+  Rendered gardens/_garden.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered gardens/_garden.html.erb (Duration: 0.4ms | Allocations: 19)
+  Rendered gardens/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1086)
+  Rendered layout layouts/application.html.erb (Duration: 17.4ms | Allocations: 9720)
+Completed 200 OK in 19ms (Views: 17.9ms | ActiveRecord: 0.1ms | Allocations: 9992)
+
+
+Started GET "/gardens/new" for ::1 at 2023-08-24 14:24:01 -0300
+Processing by GardensController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/new.html.erb within layouts/application
+  Rendered gardens/_form.html.erb (Duration: 20.5ms | Allocations: 14453)
+  Rendered gardens/new.html.erb within layouts/application (Duration: 20.9ms | Allocations: 14543)
+  Rendered layout layouts/application.html.erb (Duration: 30.3ms | Allocations: 23164)
+Completed 200 OK in 32ms (Views: 31.0ms | ActiveRecord: 0.0ms | Allocations: 23453)
+
+
+Started GET "/gardens" for ::1 at 2023-08-24 14:24:04 -0300
+Processing by GardensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.1ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens"[0m
+  ↳ app/views/gardens/index.html.erb:6
+  Rendered gardens/_garden.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered gardens/_garden.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered gardens/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1101)
+  Rendered layout layouts/application.html.erb (Duration: 16.9ms | Allocations: 9722)
+Completed 200 OK in 18ms (Views: 17.3ms | ActiveRecord: 0.1ms | Allocations: 9995)
+
+
+Started GET "/gardens" for ::1 at 2023-08-24 14:24:56 -0300
+Processing by GardensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens"[0m
+  ↳ app/views/gardens/index.html.erb:6
+  Rendered gardens/_garden.html.erb (Duration: 0.3ms | Allocations: 20)
+  Rendered gardens/_garden.html.erb (Duration: 0.0ms | Allocations: 19)
+  Rendered gardens/index.html.erb within layouts/application (Duration: 7.2ms | Allocations: 1101)
+  Rendered layout layouts/application.html.erb (Duration: 22.5ms | Allocations: 9722)
+Completed 200 OK in 27ms (Views: 23.9ms | ActiveRecord: 0.3ms | Allocations: 9993)
+
+
+Started GET "/gardens" for ::1 at 2023-08-24 14:24:57 -0300
+Processing by GardensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens"[0m
+  ↳ app/views/gardens/index.html.erb:6
+  Rendered gardens/_garden.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered gardens/_garden.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered gardens/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1116)
+  Rendered layout layouts/application.html.erb (Duration: 21.0ms | Allocations: 9738)
+Completed 200 OK in 23ms (Views: 21.5ms | ActiveRecord: 0.2ms | Allocations: 10009)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mGarden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Load (0.0ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ?[0m  [["garden_id", 1]]
+  [1m[36mGarden Destroy (0.4ms)[0m  [1m[31mDELETE FROM "gardens" WHERE "gardens"."id" = ?[0m  [["id", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Load (0.0ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ?[0m  [["garden_id", 2]]
+  [1m[36mGarden Destroy (0.1ms)[0m  [1m[31mDELETE FROM "gardens" WHERE "gardens"."id" = ?[0m  [["id", 2]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGarden Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "gardens" WHERE "gardens"."name" = ? LIMIT ?[0m  [["name", "My Little Garden"], ["LIMIT", 1]]
+  [1m[36mGarden Create (0.1ms)[0m  [1m[32mINSERT INTO "gardens" ("name", "banner_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "My Little Garden"], ["banner_url", "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/garden_1.jpg"], ["created_at", "2023-08-24 17:25:01.611882"], ["updated_at", "2023-08-24 17:25:01.611882"]]
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGarden Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "gardens" WHERE "gardens"."name" = ? LIMIT ?[0m  [["name", "My Other Garden"], ["LIMIT", 1]]
+  [1m[36mGarden Create (0.2ms)[0m  [1m[32mINSERT INTO "gardens" ("name", "banner_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "My Other Garden"], ["banner_url", "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/garden_2.jpg"], ["created_at", "2023-08-24 17:25:01.617242"], ["updated_at", "2023-08-24 17:25:01.617242"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Create (0.1ms)[0m  [1m[32mINSERT INTO "plants" ("garden_id", "name", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["garden_id", 3], ["name", "Monstera"], ["image_url", "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/plants/monstera.jpg"], ["created_at", "2023-08-24 17:25:01.623732"], ["updated_at", "2023-08-24 17:25:01.623732"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Create (0.1ms)[0m  [1m[32mINSERT INTO "plants" ("garden_id", "name", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["garden_id", 3], ["name", "Philo"], ["image_url", "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/plants/philo.jpg"], ["created_at", "2023-08-24 17:25:01.625138"], ["updated_at", "2023-08-24 17:25:01.625138"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Create (0.1ms)[0m  [1m[32mINSERT INTO "plants" ("garden_id", "name", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["garden_id", 4], ["name", "Dieff"], ["image_url", "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/plants/dieffenbachia.jpg"], ["created_at", "2023-08-24 17:25:01.626287"], ["updated_at", "2023-08-24 17:25:01.626287"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/gardens" for ::1 at 2023-08-24 14:25:04 -0300
+Processing by GardensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens"[0m
+  ↳ app/views/gardens/index.html.erb:6
+  Rendered gardens/_garden.html.erb (Duration: 0.0ms | Allocations: 43)
+  Rendered gardens/_garden.html.erb (Duration: 0.0ms | Allocations: 19)
+  Rendered gardens/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 3211)
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 23639)
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.4ms | Allocations: 25448)
+
+
+Started GET "/gardens" for ::1 at 2023-08-24 14:25:05 -0300
+Processing by GardensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens"[0m
+  ↳ app/views/gardens/index.html.erb:6
+  Rendered gardens/_garden.html.erb (Duration: 0.2ms | Allocations: 20)
+  Rendered gardens/_garden.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered gardens/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1107)
+  Rendered layout layouts/application.html.erb (Duration: 20.2ms | Allocations: 9728)
+Completed 200 OK in 21ms (Views: 20.6ms | ActiveRecord: 0.2ms | Allocations: 10024)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateGardens (20230314165946)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "gardens" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "banner_url" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230314165946"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePlants (20230314171213)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "plants" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "garden_id" integer NOT NULL, "name" varchar, "image_url" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_2c5194e718"
+FOREIGN KEY ("garden_id")
+  REFERENCES "gardens" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_plants_on_garden_id" ON "plants" ("garden_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230314171213"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-08-24 17:25:19.672000"], ["updated_at", "2023-08-24 17:25:19.672000"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mGarden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGarden Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "gardens" WHERE "gardens"."name" = ? LIMIT ?[0m  [["name", "My Little Garden"], ["LIMIT", 1]]
+  [1m[36mGarden Create (0.1ms)[0m  [1m[32mINSERT INTO "gardens" ("name", "banner_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "My Little Garden"], ["banner_url", "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/garden_1.jpg"], ["created_at", "2023-08-24 17:25:19.681777"], ["updated_at", "2023-08-24 17:25:19.681777"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGarden Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "gardens" WHERE "gardens"."name" = ? LIMIT ?[0m  [["name", "My Other Garden"], ["LIMIT", 1]]
+  [1m[36mGarden Create (0.1ms)[0m  [1m[32mINSERT INTO "gardens" ("name", "banner_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "My Other Garden"], ["banner_url", "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/garden_2.jpg"], ["created_at", "2023-08-24 17:25:19.683517"], ["updated_at", "2023-08-24 17:25:19.683517"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Create (0.2ms)[0m  [1m[32mINSERT INTO "plants" ("garden_id", "name", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["garden_id", 1], ["name", "Monstera"], ["image_url", "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/plants/monstera.jpg"], ["created_at", "2023-08-24 17:25:19.690802"], ["updated_at", "2023-08-24 17:25:19.690802"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Create (0.1ms)[0m  [1m[32mINSERT INTO "plants" ("garden_id", "name", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["garden_id", 1], ["name", "Philo"], ["image_url", "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/plants/philo.jpg"], ["created_at", "2023-08-24 17:25:19.692245"], ["updated_at", "2023-08-24 17:25:19.692245"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Create (0.1ms)[0m  [1m[32mINSERT INTO "plants" ("garden_id", "name", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["garden_id", 2], ["name", "Dieff"], ["image_url", "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/plants/dieffenbachia.jpg"], ["created_at", "2023-08-24 17:25:19.693359"], ["updated_at", "2023-08-24 17:25:19.693359"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/gardens" for ::1 at 2023-08-24 14:25:21 -0300
+Processing by GardensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens"[0m
+  ↳ app/views/gardens/index.html.erb:6
+  Rendered gardens/_garden.html.erb (Duration: 0.0ms | Allocations: 43)
+  Rendered gardens/_garden.html.erb (Duration: 0.0ms | Allocations: 19)
+  Rendered gardens/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 3177)
+  Rendered layout layouts/application.html.erb (Duration: 11.1ms | Allocations: 23640)
+Completed 200 OK in 13ms (Views: 11.4ms | ActiveRecord: 0.3ms | Allocations: 25444)
+
+
+Started GET "/gardens" for ::1 at 2023-08-24 14:25:22 -0300
+Processing by GardensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens"[0m
+  ↳ app/views/gardens/index.html.erb:6
+  Rendered gardens/_garden.html.erb (Duration: 0.2ms | Allocations: 20)
+  Rendered gardens/_garden.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered gardens/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1089)
+  Rendered layout layouts/application.html.erb (Duration: 21.7ms | Allocations: 9716)
+Completed 200 OK in 23ms (Views: 22.0ms | ActiveRecord: 0.2ms | Allocations: 10013)
+
+
+Started GET "/gardens" for ::1 at 2023-08-24 14:25:23 -0300
+Processing by GardensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens"[0m
+  ↳ app/views/gardens/index.html.erb:6
+  Rendered gardens/_garden.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered gardens/_garden.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered gardens/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1104)
+  Rendered layout layouts/application.html.erb (Duration: 22.5ms | Allocations: 9725)
+Completed 200 OK in 24ms (Views: 23.0ms | ActiveRecord: 0.3ms | Allocations: 9996)
+
+
+Started GET "/gardens/1" for ::1 at 2023-08-24 14:25:24 -0300
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:51:in `set_garden'
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ?[0m  [["garden_id", 1]]
+  ↳ app/views/gardens/show.html.erb:9
+  Rendered gardens/show.html.erb within layouts/application (Duration: 16.1ms | Allocations: 8152)
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | Allocations: 8241)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 1.2ms | Allocations: 9642)
+
+
+  
+ActionView::Template::Error (undefined method `model_name' for nil:NilClass
+
+      convert_to_model(record_or_class).model_name
+                                       ^^^^^^^^^^^):
+    18:   <div class="row my-5 justify-content-center">
+    19:     <div class="col-4">
+    20:       <h4>Add a plant</h4>
+    21:       <%= simple_form_for [@garden, @plant] do |f| %>
+    22:         <%= f.input :name, placeholder: "Palm tree" %>
+    23:         <%= f.input :image_url, placeholder: "https://some_nice_image_found_on_google.jpg" %>
+    24:         <%= f.submit "Add", class: "btn btn-primary" %>
+  
+app/views/gardens/show.html.erb:21
+Started GET "/gardens" for ::1 at 2023-08-24 14:25:26 -0300
+Processing by GardensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.1ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens"[0m
+  ↳ app/views/gardens/index.html.erb:6
+  Rendered gardens/_garden.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered gardens/_garden.html.erb (Duration: 0.0ms | Allocations: 19)
+  Rendered gardens/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1174)
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | Allocations: 9928)
+Completed 200 OK in 18ms (Views: 17.0ms | ActiveRecord: 0.1ms | Allocations: 10234)
+
+
+Started GET "/gardens/new" for ::1 at 2023-08-24 14:25:27 -0300
+Processing by GardensController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/new.html.erb within layouts/application
+  Rendered gardens/_form.html.erb (Duration: 23.8ms | Allocations: 14459)
+  Rendered gardens/new.html.erb within layouts/application (Duration: 24.2ms | Allocations: 14549)
+  Rendered layout layouts/application.html.erb (Duration: 34.4ms | Allocations: 23170)
+Completed 200 OK in 36ms (Views: 35.1ms | ActiveRecord: 0.0ms | Allocations: 23461)
+
+
+Started GET "/gardens/1" for ::1 at 2023-08-24 14:25:29 -0300
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.1ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:51:in `set_garden'
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mPlant Load (0.1ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ?[0m  [["garden_id", 1]]
+  ↳ app/views/gardens/show.html.erb:9
+  Rendered gardens/show.html.erb within layouts/application (Duration: 6.5ms | Allocations: 2561)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 2640)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.3ms | Allocations: 3369)
+
+
+  
+ActionView::Template::Error (undefined method `model_name' for nil:NilClass
+
+      convert_to_model(record_or_class).model_name
+                                       ^^^^^^^^^^^):
+    18:   <div class="row my-5 justify-content-center">
+    19:     <div class="col-4">
+    20:       <h4>Add a plant</h4>
+    21:       <%= simple_form_for [@garden, @plant] do |f| %>
+    22:         <%= f.input :name, placeholder: "Palm tree" %>
+    23:         <%= f.input :image_url, placeholder: "https://some_nice_image_found_on_google.jpg" %>
+    24:         <%= f.submit "Add", class: "btn btn-primary" %>
+  
+app/views/gardens/show.html.erb:21
+Started GET "/gardens" for ::1 at 2023-08-24 14:25:31 -0300
+Processing by GardensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.1ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens"[0m
+  ↳ app/views/gardens/index.html.erb:6
+  Rendered gardens/_garden.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered gardens/_garden.html.erb (Duration: 0.0ms | Allocations: 19)
+  Rendered gardens/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1107)
+  Rendered layout layouts/application.html.erb (Duration: 14.6ms | Allocations: 9935)
+Completed 200 OK in 16ms (Views: 14.9ms | ActiveRecord: 0.1ms | Allocations: 10206)
+
+
+Started GET "/gardens" for ::1 at 2023-08-24 14:25:55 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GardensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.1ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens"[0m
+  ↳ app/views/gardens/index.html.erb:6
+  Rendered gardens/_garden.html.erb (Duration: 0.2ms | Allocations: 230)
+  Rendered gardens/_garden.html.erb (Duration: 0.0ms | Allocations: 19)
+  Rendered gardens/index.html.erb within layouts/application (Duration: 5.5ms | Allocations: 6140)
+  Rendered layout layouts/application.html.erb (Duration: 50.3ms | Allocations: 65588)
+Completed 200 OK in 55ms (Views: 51.3ms | ActiveRecord: 0.2ms | Allocations: 70543)
+
+
+Started GET "/gardens" for ::1 at 2023-08-24 14:25:56 -0300
+Processing by GardensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens"[0m
+  ↳ app/views/gardens/index.html.erb:6
+  Rendered gardens/_garden.html.erb (Duration: 0.1ms | Allocations: 26)
+  Rendered gardens/_garden.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered gardens/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1269)
+  Rendered layout layouts/application.html.erb (Duration: 21.1ms | Allocations: 10019)
+Completed 200 OK in 23ms (Views: 21.7ms | ActiveRecord: 0.3ms | Allocations: 10365)
+
+
+Started GET "/gardens/1" for ::1 at 2023-08-24 14:25:57 -0300
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:51:in `set_garden'
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mPlant Load (0.1ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ?[0m  [["garden_id", 1]]
+  ↳ app/views/gardens/show.html.erb:9
+  Rendered gardens/show.html.erb within layouts/application (Duration: 33.5ms | Allocations: 15142)
+  Rendered layout layouts/application.html.erb (Duration: 33.7ms | Allocations: 15236)
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 1.0ms | Allocations: 18016)
+
+
+  
+ActionView::Template::Error (undefined method `model_name' for nil:NilClass
+
+      convert_to_model(record_or_class).model_name
+                                       ^^^^^^^^^^^):
+    18:   <div class="row my-5 justify-content-center">
+    19:     <div class="col-4">
+    20:       <h4>Add a plant</h4>
+    21:       <%= simple_form_for [@garden, @plant] do |f| %>
+    22:         <%= f.input :name, placeholder: "Palm tree" %>
+    23:         <%= f.input :image_url, placeholder: "https://some_nice_image_found_on_google.jpg" %>
+    24:         <%= f.submit "Add", class: "btn btn-primary" %>
+  
+app/views/gardens/show.html.erb:21
+Started GET "/gardens" for ::1 at 2023-08-24 14:26:07 -0300
+Processing by GardensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens"[0m
+  ↳ app/views/gardens/index.html.erb:6
+  Rendered gardens/_garden.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered gardens/_garden.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered gardens/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1258)
+  Rendered layout layouts/application.html.erb (Duration: 15.9ms | Allocations: 10239)
+Completed 200 OK in 17ms (Views: 16.3ms | ActiveRecord: 0.2ms | Allocations: 10555)
+
+
+Started GET "/gardens/1" for ::1 at 2023-08-24 14:26:43 -0300
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:51:in `set_garden'
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mPlant Load (0.1ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ?[0m  [["garden_id", 1]]
+  ↳ app/views/gardens/show.html.erb:9
+  Rendered gardens/show.html.erb within layouts/application (Duration: 6.9ms | Allocations: 2596)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 2675)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.4ms | Allocations: 3412)
+
+
+  
+ActionView::Template::Error (undefined method `model_name' for nil:NilClass
+
+      convert_to_model(record_or_class).model_name
+                                       ^^^^^^^^^^^):
+    18:   <div class="row my-5 justify-content-center">
+    19:     <div class="col-4">
+    20:       <h4>Add a plant</h4>
+    21:       <%= simple_form_for [@garden, @plant] do |f| %>
+    22:         <%= f.input :name, placeholder: "Palm tree" %>
+    23:         <%= f.input :image_url, placeholder: "https://some_nice_image_found_on_google.jpg" %>
+    24:         <%= f.submit "Add", class: "btn btn-primary" %>
+  
+app/views/gardens/show.html.erb:21
+Started GET "/gardens/1" for ::1 at 2023-08-24 14:29:08 -0300
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:53:in `set_garden'
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mPlant Load (0.0ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ?[0m  [["garden_id", 1]]
+  ↳ app/views/gardens/show.html.erb:9
+  Rendered gardens/show.html.erb within layouts/application (Duration: 13.5ms | Allocations: 18908)
+  Rendered layout layouts/application.html.erb (Duration: 25.7ms | Allocations: 39747)
+Completed 200 OK in 33ms (Views: 26.4ms | ActiveRecord: 0.5ms | Allocations: 47779)
+
+
+Started GET "/gardens/1" for ::1 at 2023-08-24 14:32:27 -0300
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:51:in `set_garden'
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mPlant Load (0.0ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ?[0m  [["garden_id", 1]]
+  ↳ app/views/gardens/show.html.erb:9
+  Rendered gardens/show.html.erb within layouts/application (Duration: 4.5ms | Allocations: 7381)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 7470)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.5ms | Allocations: 12485)
+
+
+  
+ActionView::Template::Error (undefined method `model_name' for nil:NilClass
+
+      convert_to_model(record_or_class).model_name
+                                       ^^^^^^^^^^^):
+    18:   <div class="row my-5 justify-content-center">
+    19:     <div class="col-4">
+    20:       <h4>Add a plant</h4>
+    21:       <%= simple_form_for [@garden, @plant] do |f| %>
+    22:         <%= f.input :name, placeholder: "Palm tree" %>
+    23:         <%= f.input :image_url, placeholder: "https://some_nice_image_found_on_google.jpg" %>
+    24:         <%= f.submit "Add", class: "btn btn-primary" %>
+  
+app/views/gardens/show.html.erb:21
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+Started GET "/gardens/1" for ::1 at 2023-08-24 14:37:28 -0300
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.7ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:51:in `set_garden'
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mPlant Load (0.9ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ?[0m  [["garden_id", 1]]
+  ↳ app/views/gardens/show.html.erb:9
+  Rendered gardens/show.html.erb within layouts/application (Duration: 8.6ms | Allocations: 2523)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 2602)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 1.5ms | Allocations: 3345)
+
+
+  
+ActionView::Template::Error (undefined method `model_name' for nil:NilClass
+
+      convert_to_model(record_or_class).model_name
+                                       ^^^^^^^^^^^):
+    18:   <div class="row my-5 justify-content-center">
+    19:     <div class="col-4">
+    20:       <h4>Add a plant</h4>
+    21:       <%= simple_form_for [@garden, @plant] do |f| %>
+    22:         <%= f.input :name, placeholder: "Palm tree" %>
+    23:         <%= f.input :image_url, placeholder: "https://some_nice_image_found_on_google.jpg" %>
+    24:         <%= f.submit "Add", class: "btn btn-primary" %>
+  
+app/views/gardens/show.html.erb:21
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateGardens (20230314165946)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "gardens" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "banner_url" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230314165946"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePlants (20230314171213)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "plants" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "garden_id" integer NOT NULL, "name" varchar, "image_url" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_2c5194e718"
+FOREIGN KEY ("garden_id")
+  REFERENCES "gardens" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_plants_on_garden_id" ON "plants" ("garden_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230314171213"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-08-24 20:07:53.131133"], ["updated_at", "2023-08-24 20:07:53.131133"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mGarden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGarden Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "gardens" WHERE "gardens"."name" = ? LIMIT ?[0m  [["name", "My Little Garden"], ["LIMIT", 1]]
+  [1m[36mGarden Create (0.2ms)[0m  [1m[32mINSERT INTO "gardens" ("name", "banner_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "My Little Garden"], ["banner_url", "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/garden_1.jpg"], ["created_at", "2023-08-24 20:07:58.529261"], ["updated_at", "2023-08-24 20:07:58.529261"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGarden Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "gardens" WHERE "gardens"."name" = ? LIMIT ?[0m  [["name", "My Other Garden"], ["LIMIT", 1]]
+  [1m[36mGarden Create (0.1ms)[0m  [1m[32mINSERT INTO "gardens" ("name", "banner_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "My Other Garden"], ["banner_url", "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/garden_2.jpg"], ["created_at", "2023-08-24 20:07:58.531447"], ["updated_at", "2023-08-24 20:07:58.531447"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Create (0.1ms)[0m  [1m[32mINSERT INTO "plants" ("garden_id", "name", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["garden_id", 1], ["name", "Monstera"], ["image_url", "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/plants/monstera.jpg"], ["created_at", "2023-08-24 20:07:58.535887"], ["updated_at", "2023-08-24 20:07:58.535887"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Create (0.1ms)[0m  [1m[32mINSERT INTO "plants" ("garden_id", "name", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["garden_id", 1], ["name", "Philo"], ["image_url", "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/plants/philo.jpg"], ["created_at", "2023-08-24 20:07:58.537287"], ["updated_at", "2023-08-24 20:07:58.537287"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Create (0.1ms)[0m  [1m[32mINSERT INTO "plants" ("garden_id", "name", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["garden_id", 2], ["name", "Dieff"], ["image_url", "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/plants/dieffenbachia.jpg"], ["created_at", "2023-08-24 20:07:58.538694"], ["updated_at", "2023-08-24 20:07:58.538694"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for ::1 at 2023-08-24 17:08:12 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/nicolasenne/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/nicolasenne/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.7ms | Allocations: 477)
+Completed 200 OK in 4ms (Views: 1.7ms | ActiveRecord: 0.0ms | Allocations: 3328)
+
+
+Started GET "/gardens" for ::1 at 2023-08-24 17:09:26 -0300
+Processing by GardensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (12.7ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens"[0m
+  ↳ app/views/gardens/index.html.erb:6
+  Rendered gardens/_garden.html.erb (Duration: 0.4ms | Allocations: 224)
+  Rendered gardens/_garden.html.erb (Duration: 0.0ms | Allocations: 19)
+  Rendered gardens/index.html.erb within layouts/application (Duration: 25.2ms | Allocations: 5965)
+  Rendered layout layouts/application.html.erb (Duration: 81.7ms | Allocations: 65386)
+Completed 200 OK in 86ms (Views: 69.5ms | ActiveRecord: 13.2ms | Allocations: 68372)
+
+
+Started GET "/gardens/1" for ::1 at 2023-08-24 17:09:48 -0300
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:51:in `set_garden'
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mPlant Load (0.5ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ?[0m  [["garden_id", 1]]
+  ↳ app/views/gardens/show.html.erb:9
+  Rendered gardens/show.html.erb within layouts/application (Duration: 34.1ms | Allocations: 15141)
+  Rendered layout layouts/application.html.erb (Duration: 34.3ms | Allocations: 15235)
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 1.3ms | Allocations: 18023)
+
+
+  
+ActionView::Template::Error (undefined method `model_name' for nil:NilClass
+
+      convert_to_model(record_or_class).model_name
+                                       ^^^^^^^^^^^):
+    18:   <div class="row my-5 justify-content-center">
+    19:     <div class="col-4">
+    20:       <h4>Add a plant</h4>
+    21:       <%= simple_form_for [@garden, @plant] do |f| %>
+    22:         <%= f.input :name, placeholder: "Palm tree" %>
+    23:         <%= f.input :image_url, placeholder: "https://some_nice_image_found_on_google.jpg" %>
+    24:         <%= f.submit "Add", class: "btn btn-primary" %>
+  
+app/views/gardens/show.html.erb:21
+Started GET "/gardens/1" for ::1 at 2023-08-24 17:13:26 -0300
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:52:in `set_garden'
+  [1m[36mCACHE Garden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:11:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ?[0m  [["garden_id", 1]]
+  ↳ app/views/gardens/show.html.erb:9
+  Rendered gardens/show.html.erb within layouts/application (Duration: 7.6ms | Allocations: 7031)
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | Allocations: 7120)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 1.0ms | Allocations: 12283)
+
+
+  
+ActionView::Template::Error (undefined method `model_name' for nil:NilClass
+
+      convert_to_model(record_or_class).model_name
+                                       ^^^^^^^^^^^):
+    18:   <div class="row my-5 justify-content-center">
+    19:     <div class="col-4">
+    20:       <h4>Add a plant</h4>
+    21:       <%= simple_form_for [@garden, @plant] do |f| %>
+    22:         <%= f.input :name, placeholder: "Palm tree" %>
+    23:         <%= f.input :image_url, placeholder: "https://some_nice_image_found_on_google.jpg" %>
+    24:         <%= f.submit "Add", class: "btn btn-primary" %>
+  
+app/views/gardens/show.html.erb:21
+Started GET "/gardens/1" for ::1 at 2023-08-24 17:13:28 -0300
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.9ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:52:in `set_garden'
+  [1m[36mCACHE Garden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:11:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ?[0m  [["garden_id", 1]]
+  ↳ app/views/gardens/show.html.erb:9
+  Rendered gardens/show.html.erb within layouts/application (Duration: 6.8ms | Allocations: 2524)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 2603)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 1.1ms | Allocations: 3764)
+
+
+  
+ActionView::Template::Error (undefined method `model_name' for nil:NilClass
+
+      convert_to_model(record_or_class).model_name
+                                       ^^^^^^^^^^^):
+    18:   <div class="row my-5 justify-content-center">
+    19:     <div class="col-4">
+    20:       <h4>Add a plant</h4>
+    21:       <%= simple_form_for [@garden, @plant] do |f| %>
+    22:         <%= f.input :name, placeholder: "Palm tree" %>
+    23:         <%= f.input :image_url, placeholder: "https://some_nice_image_found_on_google.jpg" %>
+    24:         <%= f.submit "Add", class: "btn btn-primary" %>
+  
+app/views/gardens/show.html.erb:21
+Started GET "/gardens/1" for ::1 at 2023-08-24 17:13:33 -0300
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:52:in `set_garden'
+  [1m[36mCACHE Garden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:11:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mPlant Load (0.1ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ?[0m  [["garden_id", 1]]
+  ↳ app/views/gardens/show.html.erb:9
+  Rendered gardens/show.html.erb within layouts/application (Duration: 5.5ms | Allocations: 2522)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 2601)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.4ms | Allocations: 3723)
+
+
+  
+ActionView::Template::Error (undefined method `model_name' for nil:NilClass
+
+      convert_to_model(record_or_class).model_name
+                                       ^^^^^^^^^^^):
+    18:   <div class="row my-5 justify-content-center">
+    19:     <div class="col-4">
+    20:       <h4>Add a plant</h4>
+    21:       <%= simple_form_for [@garden, @plant] do |f| %>
+    22:         <%= f.input :name, placeholder: "Palm tree" %>
+    23:         <%= f.input :image_url, placeholder: "https://some_nice_image_found_on_google.jpg" %>
+    24:         <%= f.submit "Add", class: "btn btn-primary" %>
+  
+app/views/gardens/show.html.erb:21
+Started GET "/gardens/1" for ::1 at 2023-08-24 17:14:01 -0300
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:52:in `set_garden'
+  [1m[36mCACHE Garden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:11:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ?[0m  [["garden_id", 1]]
+  ↳ app/views/gardens/show.html.erb:9
+  Rendered gardens/show.html.erb within layouts/application (Duration: 4.4ms | Allocations: 7030)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 7118)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 1.0ms | Allocations: 12234)
+
+
+  
+ActionView::Template::Error (undefined method `model_name' for nil:NilClass
+
+      convert_to_model(record_or_class).model_name
+                                       ^^^^^^^^^^^):
+    18:   <div class="row my-5 justify-content-center">
+    19:     <div class="col-4">
+    20:       <h4>Add a plant</h4>
+    21:       <%= simple_form_for [@garden, @plant] do |f| %>
+    22:         <%= f.input :name, placeholder: "Palm tree" %>
+    23:         <%= f.input :image_url, placeholder: "https://some_nice_image_found_on_google.jpg" %>
+    24:         <%= f.submit "Add", class: "btn btn-primary" %>
+  
+app/views/gardens/show.html.erb:21
+Started GET "/gardens/1" for ::1 at 2023-08-24 17:14:02 -0300
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.1ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:52:in `set_garden'
+  [1m[36mCACHE Garden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:11:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mPlant Load (0.1ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ?[0m  [["garden_id", 1]]
+  ↳ app/views/gardens/show.html.erb:9
+  Rendered gardens/show.html.erb within layouts/application (Duration: 4.5ms | Allocations: 2523)
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | Allocations: 2602)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.3ms | Allocations: 3761)
+
+
+  
+ActionView::Template::Error (undefined method `model_name' for nil:NilClass
+
+      convert_to_model(record_or_class).model_name
+                                       ^^^^^^^^^^^):
+    18:   <div class="row my-5 justify-content-center">
+    19:     <div class="col-4">
+    20:       <h4>Add a plant</h4>
+    21:       <%= simple_form_for [@garden, @plant] do |f| %>
+    22:         <%= f.input :name, placeholder: "Palm tree" %>
+    23:         <%= f.input :image_url, placeholder: "https://some_nice_image_found_on_google.jpg" %>
+    24:         <%= f.submit "Add", class: "btn btn-primary" %>
+  
+app/views/gardens/show.html.erb:21
+Started PUT "/__web_console/repl_sessions/1552cfaa9187adfee88a84d4e6eeb608" for ::1 at 2023-08-24 17:14:13 -0300
+Started PUT "/__web_console/repl_sessions/1552cfaa9187adfee88a84d4e6eeb608" for ::1 at 2023-08-24 17:14:15 -0300
+Started PUT "/__web_console/repl_sessions/1552cfaa9187adfee88a84d4e6eeb608" for ::1 at 2023-08-24 17:14:23 -0300
+Started GET "/gardens/1" for ::1 at 2023-08-24 17:16:03 -0300
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:53:in `set_garden'
+  [1m[36mCACHE Garden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:11:in `show'
+  [1m[36mPlant Load (0.0ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ?[0m  [["garden_id", 1]]
+  ↳ app/views/gardens/show.html.erb:9
+  Rendered gardens/show.html.erb within layouts/application (Duration: 10.5ms | Allocations: 8069)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 8166)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 1.0ms | Allocations: 16865)
+
+
+  
+ActionView::Template::Error (undefined method `garden_plant_path' for #<ActionView::Base:0x00000000019ac8>
+
+              recipient.public_send(method, *args, options)
+                       ^^^^^^^^^^^^
+Did you mean?  garden_plants_path
+               garden_plants_url):
+    18:   <div class="row my-5 justify-content-center">
+    19:     <div class="col-4">
+    20:       <h4>Add a plant</h4>
+    21:       <%= simple_form_for [@garden, @plant] do |f| %>
+    22:         <%= f.input :name, placeholder: "Palm tree" %>
+    23:         <%= f.input :image_url, placeholder: "https://some_nice_image_found_on_google.jpg" %>
+    24:         <%= f.submit "Add", class: "btn btn-primary" %>
+  
+app/views/gardens/show.html.erb:21
+Started GET "/gardens/1" for ::1 at 2023-08-24 17:16:04 -0300
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:53:in `set_garden'
+  [1m[36mCACHE Garden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:11:in `show'
+  [1m[36mPlant Load (0.1ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mPlant Load (0.1ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ?[0m  [["garden_id", 1]]
+  ↳ app/views/gardens/show.html.erb:9
+  Rendered gardens/show.html.erb within layouts/application (Duration: 22.1ms | Allocations: 5810)
+  Rendered layout layouts/application.html.erb (Duration: 22.5ms | Allocations: 5890)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 0.5ms | Allocations: 7568)
+
+
+  
+ActionView::Template::Error (undefined method `garden_plant_path' for #<ActionView::Base:0x00000000019dc0>
+
+              recipient.public_send(method, *args, options)
+                       ^^^^^^^^^^^^
+Did you mean?  garden_plants_path
+               garden_plants_url):
+    18:   <div class="row my-5 justify-content-center">
+    19:     <div class="col-4">
+    20:       <h4>Add a plant</h4>
+    21:       <%= simple_form_for [@garden, @plant] do |f| %>
+    22:         <%= f.input :name, placeholder: "Palm tree" %>
+    23:         <%= f.input :image_url, placeholder: "https://some_nice_image_found_on_google.jpg" %>
+    24:         <%= f.submit "Add", class: "btn btn-primary" %>
+  
+app/views/gardens/show.html.erb:21
+Started PUT "/__web_console/repl_sessions/620ce056322fe8faaa2bdbb88dab34b6" for ::1 at 2023-08-24 17:16:06 -0300
+Started PUT "/__web_console/repl_sessions/620ce056322fe8faaa2bdbb88dab34b6" for ::1 at 2023-08-24 17:16:08 -0300
+Started GET "/gardens/1" for ::1 at 2023-08-24 17:16:31 -0300
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.1ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:53:in `set_garden'
+  [1m[36mCACHE Garden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:11:in `show'
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ?[0m  [["garden_id", 1]]
+  ↳ app/views/gardens/show.html.erb:9
+  Rendered gardens/show.html.erb within layouts/application (Duration: 20.5ms | Allocations: 5696)
+  Rendered layout layouts/application.html.erb (Duration: 20.8ms | Allocations: 5775)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 0.5ms | Allocations: 7355)
+
+
+  
+ActionView::Template::Error (undefined method `garden_plant_path' for #<ActionView::Base:0x0000000001a0b8>
+
+              recipient.public_send(method, *args, options)
+                       ^^^^^^^^^^^^
+Did you mean?  garden_plants_path
+               garden_plants_url):
+    18:   <div class="row my-5 justify-content-center">
+    19:     <div class="col-4">
+    20:       <h4>Add a plant</h4>
+    21:       <%= simple_form_for [@garden, @plant] do |f| %>
+    22:         <%= f.input :name, placeholder: "Palm tree" %>
+    23:         <%= f.input :image_url, placeholder: "https://some_nice_image_found_on_google.jpg" %>
+    24:         <%= f.submit "Add", class: "btn btn-primary" %>
+  
+app/views/gardens/show.html.erb:21
+Started PUT "/__web_console/repl_sessions/d2cbbe851b757591389ff884e1d1de59" for ::1 at 2023-08-24 17:17:17 -0300
+Started PUT "/__web_console/repl_sessions/d2cbbe851b757591389ff884e1d1de59" for ::1 at 2023-08-24 17:17:17 -0300
+Started PUT "/__web_console/repl_sessions/d2cbbe851b757591389ff884e1d1de59" for ::1 at 2023-08-24 17:17:20 -0300
+Started GET "/gardens" for ::1 at 2023-08-24 17:17:31 -0300
+Processing by GardensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens"[0m
+  ↳ app/views/gardens/index.html.erb:6
+  Rendered gardens/_garden.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered gardens/_garden.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered gardens/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1279)
+  Rendered layout layouts/application.html.erb (Duration: 39.7ms | Allocations: 21922)
+Completed 200 OK in 45ms (Views: 40.1ms | ActiveRecord: 0.3ms | Allocations: 22216)
+
+
+Started GET "/gardens/1" for ::1 at 2023-08-24 17:17:46 -0300
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:53:in `set_garden'
+  [1m[36mCACHE Garden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:11:in `show'
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ?[0m  [["garden_id", 1]]
+  ↳ app/views/gardens/show.html.erb:9
+  Rendered gardens/show.html.erb within layouts/application (Duration: 25.5ms | Allocations: 5696)
+  Rendered layout layouts/application.html.erb (Duration: 25.8ms | Allocations: 5775)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.5ms | Allocations: 7355)
+
+
+  
+ActionView::Template::Error (undefined method `garden_plant_path' for #<ActionView::Base:0x0000000001a400>
+
+              recipient.public_send(method, *args, options)
+                       ^^^^^^^^^^^^
+Did you mean?  garden_plants_path
+               garden_plants_url):
+    18:   <div class="row my-5 justify-content-center">
+    19:     <div class="col-4">
+    20:       <h4>Add a plant</h4>
+    21:       <%= simple_form_for [@garden, @plant] do |f| %>
+    22:         <%= f.input :name, placeholder: "Palm tree" %>
+    23:         <%= f.input :image_url, placeholder: "https://some_nice_image_found_on_google.jpg" %>
+    24:         <%= f.submit "Add", class: "btn btn-primary" %>
+  
+app/views/gardens/show.html.erb:21
+Started GET "/gardens" for ::1 at 2023-08-24 17:17:51 -0300
+Processing by GardensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens"[0m
+  ↳ app/views/gardens/index.html.erb:6
+  Rendered gardens/_garden.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered gardens/_garden.html.erb (Duration: 0.5ms | Allocations: 19)
+  Rendered gardens/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1101)
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 9960)
+Completed 200 OK in 17ms (Views: 16.2ms | ActiveRecord: 0.2ms | Allocations: 10231)
+
+
+Started GET "/gardens/1" for ::1 at 2023-08-24 17:18:19 -0300
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:53:in `set_garden'
+  [1m[36mCACHE Garden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:11:in `show'
+  [1m[36mPlant Load (0.1ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mPlant Load (0.1ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ?[0m  [["garden_id", 1]]
+  ↳ app/views/gardens/show.html.erb:9
+  Rendered gardens/show.html.erb within layouts/application (Duration: 24.6ms | Allocations: 5696)
+  Rendered layout layouts/application.html.erb (Duration: 24.8ms | Allocations: 5775)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.5ms | Allocations: 7355)
+
+
+  
+ActionView::Template::Error (undefined method `garden_plant_path' for #<ActionView::Base:0x0000000001a720>
+
+              recipient.public_send(method, *args, options)
+                       ^^^^^^^^^^^^
+Did you mean?  garden_plants_path
+               garden_plants_url):
+    18:   <div class="row my-5 justify-content-center">
+    19:     <div class="col-4">
+    20:       <h4>Add a plant</h4>
+    21:       <%= simple_form_for [@garden, @plant] do |f| %>
+    22:         <%= f.input :name, placeholder: "Palm tree" %>
+    23:         <%= f.input :image_url, placeholder: "https://some_nice_image_found_on_google.jpg" %>
+    24:         <%= f.submit "Add", class: "btn btn-primary" %>
+  
+app/views/gardens/show.html.erb:21
+Started GET "/gardens/1" for ::1 at 2023-08-24 17:19:43 -0300
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:53:in `set_garden'
+  [1m[36mCACHE Garden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:11:in `show'
+Completed 404 Not Found in 5ms (ActiveRecord: 0.7ms | Allocations: 5991)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Plant without an ID):
+  
+app/controllers/gardens_controller.rb:12:in `show'
+Started GET "/gardens/1" for ::1 at 2023-08-24 17:20:12 -0300
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:53:in `set_garden'
+  [1m[36mCACHE Garden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:11:in `show'
+Completed 404 Not Found in 4ms (ActiveRecord: 0.4ms | Allocations: 6024)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Plant without an ID):
+  
+app/controllers/gardens_controller.rb:12:in `show'
+Started GET "/gardens/1" for ::1 at 2023-08-24 17:20:18 -0300
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:53:in `set_garden'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.5ms | Allocations: 4622)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Garden without an ID):
+  
+app/controllers/gardens_controller.rb:11:in `show'
+Started GET "/gardens/1" for ::1 at 2023-08-24 17:20:23 -0300
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:53:in `set_garden'
+  [1m[36mCACHE Garden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:11:in `show'
+  [1m[36mPlant Load (0.0ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mPlant Load (0.3ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ?[0m  [["garden_id", 1]]
+  ↳ app/views/gardens/show.html.erb:9
+  Rendered gardens/show.html.erb within layouts/application (Duration: 9.3ms | Allocations: 7818)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 7903)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.8ms | Allocations: 16647)
+
+
+  
+ActionView::Template::Error (undefined method `garden_plant_path' for #<ActionView::Base:0x0000000002b8b8>
+
+              recipient.public_send(method, *args, options)
+                       ^^^^^^^^^^^^
+Did you mean?  garden_plants_path
+               garden_plants_url):
+    18:   <div class="row my-5 justify-content-center">
+    19:     <div class="col-4">
+    20:       <h4>Add a plant</h4>
+    21:       <%= simple_form_for [@garden, @plant] do |f| %>
+    22:         <%= f.input :name, placeholder: "Palm tree" %>
+    23:         <%= f.input :image_url, placeholder: "https://some_nice_image_found_on_google.jpg" %>
+    24:         <%= f.submit "Add", class: "btn btn-primary" %>
+  
+app/views/gardens/show.html.erb:21
+Started PUT "/__web_console/repl_sessions/1f864ffd0a330c5ff615587af533675f" for ::1 at 2023-08-24 17:20:28 -0300
+Started PUT "/__web_console/repl_sessions/1f864ffd0a330c5ff615587af533675f" for ::1 at 2023-08-24 17:20:29 -0300
+Started PUT "/__web_console/repl_sessions/1f864ffd0a330c5ff615587af533675f" for ::1 at 2023-08-24 17:20:36 -0300
+Started GET "/gardens" for ::1 at 2023-08-24 17:21:33 -0300
+Processing by GardensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens"[0m
+  ↳ app/views/gardens/index.html.erb:6
+  Rendered gardens/_garden.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered gardens/_garden.html.erb (Duration: 0.0ms | Allocations: 19)
+  Rendered gardens/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1246)
+  Rendered layout layouts/application.html.erb (Duration: 33.7ms | Allocations: 21893)
+Completed 200 OK in 36ms (Views: 34.2ms | ActiveRecord: 0.3ms | Allocations: 22204)
+
+
+Started GET "/gardens/1" for ::1 at 2023-08-24 17:22:33 -0300
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:53:in `set_garden'
+  [1m[36mCACHE Garden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:11:in `show'
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mPlant Load (0.3ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ?[0m  [["garden_id", 1]]
+  ↳ app/views/gardens/show.html.erb:9
+  Rendered gardens/show.html.erb within layouts/application (Duration: 23.4ms | Allocations: 5699)
+  Rendered layout layouts/application.html.erb (Duration: 23.7ms | Allocations: 5778)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.7ms | Allocations: 7370)
+
+
+  
+ActionView::Template::Error (undefined method `garden_plant_path' for #<ActionView::Base:0x0000000002bc28>
+
+              recipient.public_send(method, *args, options)
+                       ^^^^^^^^^^^^
+Did you mean?  garden_plants_path
+               garden_plants_url):
+    18:   <div class="row my-5 justify-content-center">
+    19:     <div class="col-4">
+    20:       <h4>Add a plant</h4>
+    21:       <%= simple_form_for [@garden, @plant] do |f| %>
+    22:         <%= f.input :name, placeholder: "Palm tree" %>
+    23:         <%= f.input :image_url, placeholder: "https://some_nice_image_found_on_google.jpg" %>
+    24:         <%= f.submit "Add", class: "btn btn-primary" %>
+  
+app/views/gardens/show.html.erb:21
+Started PUT "/__web_console/repl_sessions/08a5d2a6a9da4b094dc979e45bc7f2a5" for ::1 at 2023-08-24 17:23:32 -0300
+Started PUT "/__web_console/repl_sessions/08a5d2a6a9da4b094dc979e45bc7f2a5" for ::1 at 2023-08-24 17:23:34 -0300
+Started PUT "/__web_console/repl_sessions/08a5d2a6a9da4b094dc979e45bc7f2a5" for ::1 at 2023-08-24 17:23:37 -0300
+Started GET "/gardens/1" for ::1 at 2023-08-24 17:25:09 -0300
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:54:in `set_garden'
+  [1m[36mCACHE Garden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:11:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ?[0m  [["garden_id", 1]]
+  ↳ app/views/gardens/show.html.erb:9
+  Rendered gardens/show.html.erb within layouts/application (Duration: 21.1ms | Allocations: 18166)
+  Rendered layout layouts/application.html.erb (Duration: 37.0ms | Allocations: 38813)
+Completed 200 OK in 45ms (Views: 37.3ms | ActiveRecord: 1.2ms | Allocations: 46903)
+
+
+Started GET "/gardens/1" for ::1 at 2023-08-24 17:56:16 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mCACHE ActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 2 pending migrations:
+
+20230824203930_create_tags.rb
+20230824204158_create_plant_tags.rb
+
+
+):
+  
+activerecord (7.0.4.3) lib/active_record/migration.rb:627:in `check_pending!'
+activerecord (7.0.4.3) lib/active_record/migration.rb:592:in `block (2 levels) in call'
+activesupport (7.0.4.3) lib/active_support/file_update_checker.rb:83:in `execute'
+activesupport (7.0.4.3) lib/active_support/file_update_checker.rb:93:in `execute_if_updated'
+activerecord (7.0.4.3) lib/active_record/migration.rb:599:in `block in call'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.6.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.6.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.6.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/rails/actions" for ::1 at 2023-08-24 17:56:22 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateTags (20230824203930)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "tags" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230824203930"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePlantTags (20230824204158)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "plant_tags" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "plant_id" integer NOT NULL, "tag_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_8edbc814a0"
+FOREIGN KEY ("plant_id")
+  REFERENCES "plants" ("id")
+, CONSTRAINT "fk_rails_987ff6bb63"
+FOREIGN KEY ("tag_id")
+  REFERENCES "tags" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_plant_tags_on_plant_id" ON "plant_tags" ("plant_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_plant_tags_on_tag_id" ON "plant_tags" ("tag_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230824204158"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/gardens/1" for ::1 at 2023-08-24 17:56:22 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:54:in `set_garden'
+  [1m[36mCACHE Garden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:11:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mPlant Load (0.1ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ?[0m  [["garden_id", 1]]
+  ↳ app/views/gardens/show.html.erb:9
+  Rendered gardens/show.html.erb within layouts/application (Duration: 9.3ms | Allocations: 16555)
+  Rendered layout layouts/application.html.erb (Duration: 21.1ms | Allocations: 37187)
+Completed 200 OK in 36ms (Views: 21.7ms | ActiveRecord: 0.6ms | Allocations: 45790)
+
+
+Started POST "/gardens/1/plants" for ::1 at 2023-08-24 17:56:34 -0300
+Processing by PlantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "plant"=>{"name"=>"Philo", "image_url"=>"https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/plants/philo.jpg"}, "commit"=>"Add", "garden_id"=>"1"}
+  [1m[36mGarden Load (0.1ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/plants_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/plants_controller.rb:6:in `create'
+  [1m[36mPlant Create (0.6ms)[0m  [1m[32mINSERT INTO "plants" ("garden_id", "name", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["garden_id", 1], ["name", "Philo"], ["image_url", "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/plants/philo.jpg"], ["created_at", "2023-08-24 20:56:34.506547"], ["updated_at", "2023-08-24 20:56:34.506547"]]
+  ↳ app/controllers/plants_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/plants_controller.rb:6:in `create'
+Redirected to http://localhost:3000/gardens/1
+Completed 302 Found in 9ms (ActiveRecord: 1.7ms | Allocations: 3589)
+
+
+Started GET "/gardens/1" for ::1 at 2023-08-24 17:56:34 -0300
+Processing by GardensController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.1ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:54:in `set_garden'
+  [1m[36mCACHE Garden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:11:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mPlant Load (0.1ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ?[0m  [["garden_id", 1]]
+  ↳ app/views/gardens/show.html.erb:9
+  Rendered gardens/show.html.erb within layouts/application (Duration: 13.9ms | Allocations: 14842)
+  Rendered layout layouts/application.html.erb (Duration: 23.8ms | Allocations: 23563)
+Completed 200 OK in 26ms (Views: 24.3ms | ActiveRecord: 0.1ms | Allocations: 24851)
+
+
+Started GET "/gardens/1/plants" for ::1 at 2023-08-24 17:57:03 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/gardens/1/plants"):
+  
+Started GET "/gardens/1" for ::1 at 2023-08-24 17:58:11 -0300
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:55:in `set_garden'
+  [1m[36mCACHE Garden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:11:in `show'
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.7ms | Allocations: 8439)
+
+
+  
+RuntimeError ():
+  
+app/controllers/gardens_controller.rb:14:in `show'
+Started PUT "/__web_console/repl_sessions/4c9a96c65234902d43b9f1873ff0495d" for ::1 at 2023-08-24 17:58:32 -0300
+Started PUT "/__web_console/repl_sessions/4c9a96c65234902d43b9f1873ff0495d" for ::1 at 2023-08-24 17:58:33 -0300
+  [1m[36mPlant Load (1.8ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ? /* loading for inspect */ LIMIT ?[0m  [["garden_id", 1], ["LIMIT", 11]]
+Started PUT "/__web_console/repl_sessions/4c9a96c65234902d43b9f1873ff0495d" for ::1 at 2023-08-24 17:58:43 -0300
+Started GET "/gardens/1" for ::1 at 2023-08-24 18:00:17 -0300
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.1ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:55:in `set_garden'
+  [1m[36mCACHE Garden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:11:in `show'
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.1ms | Allocations: 1393)
+
+
+  
+RuntimeError ():
+  
+app/controllers/gardens_controller.rb:14:in `show'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mGarden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Load (0.1ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ?[0m  [["garden_id", 1]]
+  [1m[36mPlantTag Load (0.0ms)[0m  [1m[34mSELECT "plant_tags".* FROM "plant_tags" WHERE "plant_tags"."plant_id" = ?[0m  [["plant_id", 1]]
+  [1m[36mPlant Destroy (0.1ms)[0m  [1m[31mDELETE FROM "plants" WHERE "plants"."id" = ?[0m  [["id", 1]]
+  [1m[36mPlantTag Load (0.0ms)[0m  [1m[34mSELECT "plant_tags".* FROM "plant_tags" WHERE "plant_tags"."plant_id" = ?[0m  [["plant_id", 2]]
+  [1m[36mPlant Destroy (0.0ms)[0m  [1m[31mDELETE FROM "plants" WHERE "plants"."id" = ?[0m  [["id", 2]]
+  [1m[36mPlantTag Load (0.0ms)[0m  [1m[34mSELECT "plant_tags".* FROM "plant_tags" WHERE "plant_tags"."plant_id" = ?[0m  [["plant_id", 4]]
+  [1m[36mPlant Destroy (0.0ms)[0m  [1m[31mDELETE FROM "plants" WHERE "plants"."id" = ?[0m  [["id", 4]]
+  [1m[36mGarden Destroy (0.0ms)[0m  [1m[31mDELETE FROM "gardens" WHERE "gardens"."id" = ?[0m  [["id", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Load (0.0ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ?[0m  [["garden_id", 2]]
+  [1m[36mPlantTag Load (0.0ms)[0m  [1m[34mSELECT "plant_tags".* FROM "plant_tags" WHERE "plant_tags"."plant_id" = ?[0m  [["plant_id", 3]]
+  [1m[36mPlant Destroy (0.1ms)[0m  [1m[31mDELETE FROM "plants" WHERE "plants"."id" = ?[0m  [["id", 3]]
+  [1m[36mGarden Destroy (0.0ms)[0m  [1m[31mDELETE FROM "gardens" WHERE "gardens"."id" = ?[0m  [["id", 2]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGarden Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "gardens" WHERE "gardens"."name" = ? LIMIT ?[0m  [["name", "My Little Garden"], ["LIMIT", 1]]
+  [1m[36mGarden Create (0.1ms)[0m  [1m[32mINSERT INTO "gardens" ("name", "banner_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "My Little Garden"], ["banner_url", "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/garden_1.jpg"], ["created_at", "2023-08-24 21:00:29.031603"], ["updated_at", "2023-08-24 21:00:29.031603"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGarden Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "gardens" WHERE "gardens"."name" = ? LIMIT ?[0m  [["name", "My Other Garden"], ["LIMIT", 1]]
+  [1m[36mGarden Create (0.1ms)[0m  [1m[32mINSERT INTO "gardens" ("name", "banner_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "My Other Garden"], ["banner_url", "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/garden_2.jpg"], ["created_at", "2023-08-24 21:00:29.033387"], ["updated_at", "2023-08-24 21:00:29.033387"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Create (0.1ms)[0m  [1m[32mINSERT INTO "plants" ("garden_id", "name", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["garden_id", 3], ["name", "Monstera"], ["image_url", "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/plants/monstera.jpg"], ["created_at", "2023-08-24 21:00:29.034401"], ["updated_at", "2023-08-24 21:00:29.034401"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Create (0.1ms)[0m  [1m[32mINSERT INTO "plants" ("garden_id", "name", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["garden_id", 3], ["name", "Philo"], ["image_url", "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/plants/philo.jpg"], ["created_at", "2023-08-24 21:00:29.035533"], ["updated_at", "2023-08-24 21:00:29.035533"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Create (0.1ms)[0m  [1m[32mINSERT INTO "plants" ("garden_id", "name", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["garden_id", 4], ["name", "Dieff"], ["image_url", "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/plants/dieffenbachia.jpg"], ["created_at", "2023-08-24 21:00:29.036677"], ["updated_at", "2023-08-24 21:00:29.036677"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTag Create (0.1ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "bonita"], ["created_at", "2023-08-24 21:00:29.039483"], ["updated_at", "2023-08-24 21:00:29.039483"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTag Create (0.1ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "verde"], ["created_at", "2023-08-24 21:00:29.040685"], ["updated_at", "2023-08-24 21:00:29.040685"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTag Create (0.1ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "alta"], ["created_at", "2023-08-24 21:00:29.041772"], ["updated_at", "2023-08-24 21:00:29.041772"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateGardens (20230314165946)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "gardens" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "banner_url" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230314165946"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePlants (20230314171213)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "plants" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "garden_id" integer NOT NULL, "name" varchar, "image_url" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_2c5194e718"
+FOREIGN KEY ("garden_id")
+  REFERENCES "gardens" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_plants_on_garden_id" ON "plants" ("garden_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230314171213"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTags (20230824203930)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "tags" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230824203930"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePlantTags (20230824204158)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "plant_tags" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "plant_id" integer NOT NULL, "tag_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_8edbc814a0"
+FOREIGN KEY ("plant_id")
+  REFERENCES "plants" ("id")
+, CONSTRAINT "fk_rails_987ff6bb63"
+FOREIGN KEY ("tag_id")
+  REFERENCES "tags" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_plant_tags_on_plant_id" ON "plant_tags" ("plant_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_plant_tags_on_tag_id" ON "plant_tags" ("tag_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230824204158"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-08-24 21:00:36.362389"], ["updated_at", "2023-08-24 21:00:36.362389"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mGarden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGarden Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "gardens" WHERE "gardens"."name" = ? LIMIT ?[0m  [["name", "My Little Garden"], ["LIMIT", 1]]
+  [1m[36mGarden Create (0.2ms)[0m  [1m[32mINSERT INTO "gardens" ("name", "banner_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "My Little Garden"], ["banner_url", "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/garden_1.jpg"], ["created_at", "2023-08-24 21:00:36.375642"], ["updated_at", "2023-08-24 21:00:36.375642"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGarden Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "gardens" WHERE "gardens"."name" = ? LIMIT ?[0m  [["name", "My Other Garden"], ["LIMIT", 1]]
+  [1m[36mGarden Create (0.1ms)[0m  [1m[32mINSERT INTO "gardens" ("name", "banner_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "My Other Garden"], ["banner_url", "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/garden_2.jpg"], ["created_at", "2023-08-24 21:00:36.377541"], ["updated_at", "2023-08-24 21:00:36.377541"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Create (0.2ms)[0m  [1m[32mINSERT INTO "plants" ("garden_id", "name", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["garden_id", 1], ["name", "Monstera"], ["image_url", "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/plants/monstera.jpg"], ["created_at", "2023-08-24 21:00:36.382509"], ["updated_at", "2023-08-24 21:00:36.382509"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Create (0.1ms)[0m  [1m[32mINSERT INTO "plants" ("garden_id", "name", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["garden_id", 1], ["name", "Philo"], ["image_url", "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/plants/philo.jpg"], ["created_at", "2023-08-24 21:00:36.384275"], ["updated_at", "2023-08-24 21:00:36.384275"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Create (0.1ms)[0m  [1m[32mINSERT INTO "plants" ("garden_id", "name", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["garden_id", 2], ["name", "Dieff"], ["image_url", "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/plants/dieffenbachia.jpg"], ["created_at", "2023-08-24 21:00:36.385454"], ["updated_at", "2023-08-24 21:00:36.385454"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTag Create (0.1ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "bonita"], ["created_at", "2023-08-24 21:00:36.388015"], ["updated_at", "2023-08-24 21:00:36.388015"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTag Create (0.1ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "verde"], ["created_at", "2023-08-24 21:00:36.389206"], ["updated_at", "2023-08-24 21:00:36.389206"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTag Create (0.1ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "alta"], ["created_at", "2023-08-24 21:00:36.390328"], ["updated_at", "2023-08-24 21:00:36.390328"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/gardens/1" for ::1 at 2023-08-24 18:00:38 -0300
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:55:in `set_garden'
+  [1m[36mCACHE Garden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:11:in `show'
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.5ms | Allocations: 8501)
+
+
+  
+RuntimeError ():
+  
+app/controllers/gardens_controller.rb:14:in `show'
+Started GET "/gardens/1" for ::1 at 2023-08-24 18:00:48 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:55:in `set_garden'
+  [1m[36mCACHE Garden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:11:in `show'
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.5ms | Allocations: 15241)
+
+
+  
+RuntimeError ():
+  
+app/controllers/gardens_controller.rb:14:in `show'
+Started PUT "/__web_console/repl_sessions/2f377ab473afa10801bbe28b061417c5" for ::1 at 2023-08-24 18:00:50 -0300
+Started PUT "/__web_console/repl_sessions/2f377ab473afa10801bbe28b061417c5" for ::1 at 2023-08-24 18:00:51 -0300
+  [1m[36mPlant Load (0.5ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ? /* loading for inspect */ LIMIT ?[0m  [["garden_id", 1], ["LIMIT", 11]]
+Started GET "/gardens/1" for ::1 at 2023-08-24 18:01:49 -0300
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:55:in `set_garden'
+  [1m[36mCACHE Garden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:11:in `show'
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.2ms | Allocations: 1463)
+
+
+  
+RuntimeError ():
+  
+app/controllers/gardens_controller.rb:14:in `show'
+Started GET "/gardens/1" for ::1 at 2023-08-24 18:01:50 -0300
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.4ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:55:in `set_garden'
+  [1m[36mCACHE Garden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:11:in `show'
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 0.4ms | Allocations: 1389)
+
+
+  
+RuntimeError ():
+  
+app/controllers/gardens_controller.rb:14:in `show'
+Started GET "/gardens/1" for ::1 at 2023-08-24 18:01:56 -0300
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:54:in `set_garden'
+  [1m[36mCACHE Garden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:11:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mPlant Load (0.1ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ?[0m  [["garden_id", 1]]
+  ↳ app/views/gardens/show.html.erb:9
+  Rendered gardens/show.html.erb within layouts/application (Duration: 11.4ms | Allocations: 9598)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 9696)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.6ms | Allocations: 18762)
+
+
+  
+ActionView::Template::Error (undefined method `model_name' for nil:NilClass
+
+      convert_to_model(record_or_class).model_name
+                                       ^^^^^^^^^^^):
+    18:   <div class="row my-5 justify-content-center">
+    19:     <div class="col-4">
+    20:       <h4>Add a plant</h4>
+    21:       <%= simple_form_for [@garden, @plant, @tag] do |f| %>
+    22:         <%= f.input :name, placeholder: "Palm tree" %>
+    23:         <%= f.input :image_url, placeholder: "https://some_nice_image_found_on_google.jpg" %>
+    24:         <%= f.submit "Add", class: "btn btn-primary" %>
+  
+app/views/gardens/show.html.erb:21
+Started PUT "/__web_console/repl_sessions/5837dbc84cdf321ba0c7362330d69de4" for ::1 at 2023-08-24 18:02:01 -0300
+Started PUT "/__web_console/repl_sessions/5837dbc84cdf321ba0c7362330d69de4" for ::1 at 2023-08-24 18:02:01 -0300
+Started GET "/gardens/1" for ::1 at 2023-08-24 18:02:18 -0300
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:55:in `set_garden'
+  [1m[36mCACHE Garden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:11:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mPlant Load (0.0ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ?[0m  [["garden_id", 1]]
+  ↳ app/views/gardens/show.html.erb:9
+  Rendered gardens/show.html.erb within layouts/application (Duration: 10.3ms | Allocations: 7528)
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 7625)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.7ms | Allocations: 18647)
+
+
+  
+ActionView::Template::Error (undefined method `garden_plant_tags_path' for #<ActionView::Base:0x00000000015018>
+
+              recipient.public_send(method, *args, options)
+                       ^^^^^^^^^^^^
+Did you mean?  garden_plants_path):
+    18:   <div class="row my-5 justify-content-center">
+    19:     <div class="col-4">
+    20:       <h4>Add a plant</h4>
+    21:       <%= simple_form_for [@garden, @plant, @tag] do |f| %>
+    22:         <%= f.input :name, placeholder: "Palm tree" %>
+    23:         <%= f.input :image_url, placeholder: "https://some_nice_image_found_on_google.jpg" %>
+    24:         <%= f.submit "Add", class: "btn btn-primary" %>
+  
+app/views/gardens/show.html.erb:21
+Started GET "/gardens/1" for ::1 at 2023-08-24 18:02:19 -0300
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:55:in `set_garden'
+  [1m[36mCACHE Garden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:11:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ?[0m  [["garden_id", 1]]
+  ↳ app/views/gardens/show.html.erb:9
+  Rendered gardens/show.html.erb within layouts/application (Duration: 29.5ms | Allocations: 5719)
+  Rendered layout layouts/application.html.erb (Duration: 29.8ms | Allocations: 5798)
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 0.5ms | Allocations: 7066)
+
+
+  
+ActionView::Template::Error (undefined method `garden_plant_tags_path' for #<ActionView::Base:0x00000000015310>
+
+              recipient.public_send(method, *args, options)
+                       ^^^^^^^^^^^^
+Did you mean?  garden_plants_path):
+    18:   <div class="row my-5 justify-content-center">
+    19:     <div class="col-4">
+    20:       <h4>Add a plant</h4>
+    21:       <%= simple_form_for [@garden, @plant, @tag] do |f| %>
+    22:         <%= f.input :name, placeholder: "Palm tree" %>
+    23:         <%= f.input :image_url, placeholder: "https://some_nice_image_found_on_google.jpg" %>
+    24:         <%= f.submit "Add", class: "btn btn-primary" %>
+  
+app/views/gardens/show.html.erb:21
+Started PUT "/__web_console/repl_sessions/0a2023e265661146d70e9528867ff876" for ::1 at 2023-08-24 18:02:21 -0300
+Started PUT "/__web_console/repl_sessions/0a2023e265661146d70e9528867ff876" for ::1 at 2023-08-24 18:02:21 -0300
+Started GET "/gardens/1" for ::1 at 2023-08-24 18:04:39 -0300
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.1ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:57:in `set_garden'
+  [1m[36mCACHE Garden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:11:in `show'
+  [1m[36mPlant Load (0.0ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:15:in `show'
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.6ms | Allocations: 14253)
+
+
+  
+NoMethodError (undefined method `plant' for #<Plant id: 1, garden_id: 1, name: "Monstera", image_url: "https://raw.githubusercontent.com/lewagon/fullstac...", created_at: "2023-08-24 21:00:36.382509000 +0000", updated_at: "2023-08-24 21:00:36.382509000 +0000">):
+  
+app/controllers/gardens_controller.rb:16:in `show'
+Started GET "/gardens" for ::1 at 2023-11-16 13:29:26 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GardensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens"[0m
+  ↳ app/views/gardens/index.html.erb:6
+  Rendered gardens/_garden.html.erb (Duration: 0.4ms | Allocations: 230)
+  Rendered gardens/_garden.html.erb (Duration: 0.0ms | Allocations: 19)
+  Rendered gardens/index.html.erb within layouts/application (Duration: 10.0ms | Allocations: 9712)
+  Rendered layout layouts/application.html.erb (Duration: 93.5ms | Allocations: 69051)
+Completed 200 OK in 102ms (Views: 94.6ms | ActiveRecord: 0.5ms | Allocations: 74006)
+
+
+Started GET "/gardens" for ::1 at 2023-11-16 13:29:29 -0300
+Processing by GardensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens"[0m
+  ↳ app/views/gardens/index.html.erb:6
+  Rendered gardens/_garden.html.erb (Duration: 0.2ms | Allocations: 26)
+  Rendered gardens/_garden.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered gardens/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1349)
+  Rendered layout layouts/application.html.erb (Duration: 17.1ms | Allocations: 10009)
+Completed 200 OK in 19ms (Views: 17.7ms | ActiveRecord: 0.2ms | Allocations: 10355)
+
+
+Started GET "/gardens/1" for ::1 at 2023-11-16 13:29:30 -0300
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.4ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:57:in `set_garden'
+  [1m[36mCACHE Garden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:11:in `show'
+  [1m[36mPlant Load (0.1ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:15:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mPlant Load (0.3ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ?[0m  [["garden_id", 1]]
+  ↳ app/views/gardens/show.html.erb:9
+  Rendered gardens/show.html.erb within layouts/application (Duration: 35.8ms | Allocations: 13795)
+  Rendered layout layouts/application.html.erb (Duration: 35.9ms | Allocations: 13889)
+Completed 500 Internal Server Error in 59ms (ActiveRecord: 1.4ms | Allocations: 23647)
+
+
+  
+ActionView::Template::Error (undefined method `garden_plant_plant_path' for #<ActionView::Base:0x0000000000c620>
+
+              recipient.public_send(method, *args, options)
+                       ^^^^^^^^^^^^
+Did you mean?  garden_plants_path):
+    18:   <div class="row my-5 justify-content-center">
+    19:     <div class="col-4">
+    20:       <h4>Add a plant</h4>
+    21:       <%= simple_form_for [@garden, @plant, @tag] do |f| %>
+    22:         <%= f.input :name, placeholder: "Palm tree" %>
+    23:         <%= f.input :image_url, placeholder: "https://some_nice_image_found_on_google.jpg" %>
+    24:         <%= f.submit "Add", class: "btn btn-primary" %>
+  
+app/views/gardens/show.html.erb:21
+Started GET "/gardens/" for ::1 at 2023-11-16 14:28:13 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GardensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens"[0m
+  ↳ app/views/gardens/index.html.erb:6
+  Rendered gardens/_garden.html.erb (Duration: 0.2ms | Allocations: 230)
+  Rendered gardens/_garden.html.erb (Duration: 0.0ms | Allocations: 19)
+  Rendered gardens/index.html.erb within layouts/application (Duration: 6.6ms | Allocations: 9703)
+  Rendered layout layouts/application.html.erb (Duration: 61.8ms | Allocations: 69014)
+Completed 200 OK in 69ms (Views: 62.7ms | ActiveRecord: 0.4ms | Allocations: 74016)
+
+
+Started GET "/gardens/1" for ::1 at 2023-11-16 14:28:14 -0300
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:57:in `set_garden'
+  [1m[36mCACHE Garden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:11:in `show'
+  [1m[36mPlant Load (0.1ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:15:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mPlant Load (0.3ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ?[0m  [["garden_id", 1]]
+  ↳ app/views/gardens/show.html.erb:9
+  Rendered gardens/show.html.erb within layouts/application (Duration: 26.7ms | Allocations: 13788)
+  Rendered layout layouts/application.html.erb (Duration: 26.8ms | Allocations: 13882)
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 1.2ms | Allocations: 23625)
+
+
+  
+ActionView::Template::Error (undefined method `garden_plant_plant_path' for #<ActionView::Base:0x0000000000c580>
+
+              recipient.public_send(method, *args, options)
+                       ^^^^^^^^^^^^
+Did you mean?  garden_plants_path):
+    18:   <div class="row my-5 justify-content-center">
+    19:     <div class="col-4">
+    20:       <h4>Add a plant</h4>
+    21:       <%= simple_form_for [@garden, @plant, @tag] do |f| %>
+    22:         <%= f.input :name, placeholder: "Palm tree" %>
+    23:         <%= f.input :image_url, placeholder: "https://some_nice_image_found_on_google.jpg" %>
+    24:         <%= f.submit "Add", class: "btn btn-primary" %>
+  
+app/views/gardens/show.html.erb:21
+Started GET "/gardens/" for ::1 at 2023-11-16 14:28:21 -0300
+Processing by GardensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.1ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens"[0m
+  ↳ app/views/gardens/index.html.erb:6
+  Rendered gardens/_garden.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered gardens/_garden.html.erb (Duration: 0.0ms | Allocations: 19)
+  Rendered gardens/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1312)
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | Allocations: 10296)
+Completed 200 OK in 15ms (Views: 14.6ms | ActiveRecord: 0.1ms | Allocations: 10622)
+
+
+Started GET "/gardens/1" for ::1 at 2023-11-16 14:28:22 -0300
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.1ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:57:in `set_garden'
+  [1m[36mCACHE Garden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:11:in `show'
+  [1m[36mPlant Load (0.1ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:15:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mPlant Load (0.1ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ?[0m  [["garden_id", 1]]
+  ↳ app/views/gardens/show.html.erb:9
+  Rendered gardens/show.html.erb within layouts/application (Duration: 20.8ms | Allocations: 5721)
+  Rendered layout layouts/application.html.erb (Duration: 21.0ms | Allocations: 5800)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.3ms | Allocations: 7469)
+
+
+  
+ActionView::Template::Error (undefined method `garden_plant_plant_path' for #<ActionView::Base:0x0000000000c918>
+
+              recipient.public_send(method, *args, options)
+                       ^^^^^^^^^^^^
+Did you mean?  garden_plants_path):
+    18:   <div class="row my-5 justify-content-center">
+    19:     <div class="col-4">
+    20:       <h4>Add a plant</h4>
+    21:       <%= simple_form_for [@garden, @plant, @tag] do |f| %>
+    22:         <%= f.input :name, placeholder: "Palm tree" %>
+    23:         <%= f.input :image_url, placeholder: "https://some_nice_image_found_on_google.jpg" %>
+    24:         <%= f.submit "Add", class: "btn btn-primary" %>
+  
+app/views/gardens/show.html.erb:21
+Started GET "/gardens/" for ::1 at 2023-11-16 14:28:23 -0300
+Processing by GardensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.1ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens"[0m
+  ↳ app/views/gardens/index.html.erb:6
+  Rendered gardens/_garden.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered gardens/_garden.html.erb (Duration: 0.0ms | Allocations: 19)
+  Rendered gardens/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1145)
+  Rendered layout layouts/application.html.erb (Duration: 16.1ms | Allocations: 10005)
+Completed 200 OK in 17ms (Views: 16.4ms | ActiveRecord: 0.1ms | Allocations: 10276)
+
+
+Started GET "/gardens/1" for ::1 at 2023-11-16 14:28:50 -0300
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:57:in `set_garden'
+  [1m[36mCACHE Garden Load (0.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:11:in `show'
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gardens_controller.rb:15:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ?[0m  [["garden_id", 1]]
+  ↳ app/views/gardens/show.html.erb:9
+  Rendered gardens/show.html.erb within layouts/application (Duration: 27.5ms | Allocations: 5629)
+  Rendered layout layouts/application.html.erb (Duration: 27.9ms | Allocations: 5709)
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 0.6ms | Allocations: 7352)
+
+
+  
+ActionView::Template::Error (undefined method `garden_plant_plant_path' for #<ActionView::Base:0x0000000000cc38>
+
+              recipient.public_send(method, *args, options)
+                       ^^^^^^^^^^^^
+Did you mean?  garden_plants_path):
+    18:   <div class="row my-5 justify-content-center">
+    19:     <div class="col-4">
+    20:       <h4>Add a plant</h4>
+    21:       <%= simple_form_for [@garden, @plant, @tag] do |f| %>
+    22:         <%= f.input :name, placeholder: "Palm tree" %>
+    23:         <%= f.input :image_url, placeholder: "https://some_nice_image_found_on_google.jpg" %>
+    24:         <%= f.submit "Add", class: "btn btn-primary" %>
+  
+app/views/gardens/show.html.erb:21
+Started GET "/gardens/" for ::1 at 2023-11-16 14:28:56 -0300
+Processing by GardensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens"[0m
+  ↳ app/views/gardens/index.html.erb:6
+  Rendered gardens/_garden.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered gardens/_garden.html.erb (Duration: 0.0ms | Allocations: 19)
+  Rendered gardens/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1130)
+  Rendered layout layouts/application.html.erb (Duration: 16.5ms | Allocations: 9989)
+Completed 200 OK in 18ms (Views: 17.0ms | ActiveRecord: 0.2ms | Allocations: 10260)
+
+
